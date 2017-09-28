@@ -1,0 +1,56 @@
+.cnt-web {
+  max-width: 1240px;
+  margin: 0 auto
+}
+
+
+/* Header*/
+
+nav .nav-wrapper {
+  padding: 0 20px 0 20px;
+  font-size: 1.2em
+}
+
+nav .brand-logo h1 {
+  font-size: 3.1rem;
+  margin-top: 10px;
+}
+
+nav ul a {
+  font-size: 1.5rem;
+  padding-top: 5px
+}
+
+
+/* Boton enviar*/
+
+#enviar {
+  border: none;
+  padding: 20px 30px;
+  color: #FFF;
+  transition: all 1s;
+  font-size: 2em
+}
+
+#enviar:hover {
+  opacity: 0.7
+}
+
+
+/* Seleccion opciones */
+
+label {
+  font-size: 2em !important
+}
+
+form {
+  padding-top: 60px
+}
+
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after,
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after ,
+input[type=range]+.thumb,
+input[type=range]::-webkit-slider-thumb  {
+  background-color: #64b5f6;
+  border-color: #64b5f6
+}
