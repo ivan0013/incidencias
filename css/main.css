@@ -23,7 +23,7 @@ nav ul a {
 
 
 /* Boton enviar*/
-
+#vaciar,
 #enviar {
   border: none;
   padding: 20px 30px;
@@ -32,6 +32,7 @@ nav ul a {
   font-size: 2em
 }
 
+#vaciar:hover ,
 #enviar:hover {
   opacity: 0.7
 }

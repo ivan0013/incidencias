@@ -18,7 +18,7 @@ $(document).ready(function() { // Espera a que carguen todos os datos da web
 
         var incidencias = readCookie("incidencias"); // recupera as incidencias antiguas
 
-        if (incidencias == null) { // se non hai elementos anteriores
+        if (incidencias == null || incidencias == "") { // se non hai elementos anteriores
           incidencias = Array(incidencia); // crea o vector coa incidencia
         } else {
           incidencias = JSON.parse(incidencias); // se hai elemntos, deserializamos os datos da cookie
@@ -53,7 +53,7 @@ $(document).ready(function() { // Espera a que carguen todos os datos da web
       var incidencias = readCookie("incidencias"); // recupera as incidencias gardadas
       var tabla = $("#tabla-incidencias")
 
-      if (incidencias != null){
+      if (incidencias != null && incidencias != ""){
         incidencias = JSON.parse(incidencias); // deserializa as incidencias
         $("#total-incidencias").text(incidencias.length); // imprime el total de incidencias
 
@@ -78,11 +78,17 @@ $(document).ready(function() { // Espera a que carguen todos os datos da web
       }else{
         $("#total-incidencias").text("0"); // imprime el total de incidencias
         tabla.remove();
+        $("#vaciar").remove();
       }
 
   }
 
 });
+
+function vaciarIncidencias(){ //funcion para eliminar las incidencias
+  createCookie("incidencias", "", 20); // sustituye la cookie por una vacia
+  location.reload(); // actualiza a paxina
+}
 
 // ** Funcions importadas **
 // Funcions para xestionar as cookies
