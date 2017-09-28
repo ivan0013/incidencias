@@ -31,20 +31,20 @@ $(document).ready(function() { // Espera a que carguen todos os datos da web
         $("#cantidad").val(0); // reinicia o campo
         $("input[name='group1']:checked").prop('checked', false); // reinicia o campo
 
-        alert("Incidencia creada");
+
+         Materialize.toast('Incidencia creada', 4000, "green");
       } else {
 
-        var error = "Error:\n";
-
         if (cantidad == 0) { // comproba cal e o erro
-          error += ("Seleccione unha cantidade \n");
+          var error = ("Error: Seleccione unha cantidade");
+          Materialize.toast(error, 4000, "red");
         }
 
         if(typeof optValor == "undefined") {
-          error += ("Seleccione unha opción da lista");
+          var error = ("Error: Seleccione unha opción da lista");
+          Materialize.toast(error, 4000, "red");
         }
 
-        alert(error);
       }
 
       return false // cancela o refresco da pagina
@@ -57,14 +57,16 @@ $(document).ready(function() { // Espera a que carguen todos os datos da web
         incidencias = JSON.parse(incidencias); // deserializa as incidencias
         $("#total-incidencias").text(incidencias.length); // imprime el total de incidencias
 
-        $.each(incidencias, function(clave, incidencia){
-          var tr = $("<tr></tr>");
+        $.each(incidencias, function(clave, incidencia){ // para cada incidencia
+          var tr = $("<tr></tr>"); // fila de tabla
 
+          // datos de incidencia
           var td1 = $("<td>" +incidencia.fecha+ "</td>");
           var td2 = $("<td>" +incidencia.hora+ "</td>");
           var td3 = $("<td>" +incidencia.tipo+ "</td>");
           var td4 = $("<td>" +incidencia.cantidad+ "</td>");
 
+          // introducir na tabla
           tr.append(td1);
           tr.append(td2);
           tr.append(td3);
